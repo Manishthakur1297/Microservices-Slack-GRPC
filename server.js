@@ -6,7 +6,7 @@ const axios = require("axios");
 const connectDB = require("./config/db");
 const Message = require("./models/message");
 
-const PROTO_PATH = "../proto/message.proto";
+const PROTO_PATH = __dirname + "/message.proto";
 const SERVER_URI = "0.0.0.0:31000";
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH);
@@ -14,7 +14,6 @@ const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
 
 const sendMessage = (call, callback) => {
   const { msg } = call.request;
-  console.log(msg, call.request);
   if (!msg) {
     return callback(new Error("You must provide a non-empty message."));
   }
@@ -60,4 +59,4 @@ server.bind(SERVER_URI, grpc.ServerCredentials.createInsecure());
 connectDB();
 
 server.start();
-console.log("Microservice Server 2 is running!");
+console.log("Microservice GRPC Server M2 is running!");

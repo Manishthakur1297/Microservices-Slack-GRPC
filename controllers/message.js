@@ -1,7 +1,7 @@
 const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 
-const PROTO_PATH = "../proto/message.proto";
+const PROTO_PATH = __dirname + "/../message.proto";
 const SERVER_URI = "0.0.0.0:31000";
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH);
