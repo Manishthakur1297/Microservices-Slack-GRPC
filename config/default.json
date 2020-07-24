@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://mj:mj@test.gzzv0.mongodb.net/messages?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://mj:mj@test.gzzv0.mongodb.net/messages?retryWrites=true&w=majority",
+    "SLACK_URL": "https://hooks.slack.com/services/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"
 }

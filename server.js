@@ -2,6 +2,9 @@ const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 
 const axios = require("axios");
+const config = require("config");
+
+const SLACK_URL = config.get("SLACK_URL");
 
 const connectDB = require("./config/db");
 const Message = require("./models/message");
@@ -41,20 +44,13 @@ const sendMessage = (call, callback) => {
   console.log(data);
 
   axios
-    .post(
-      "https://hooks.slack.com/services/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",
-      data
-    )
+    .post(SLACK_URL, data)
     .then((res) => {
-      console.log("Insideeeee");
       callback(null, res.status);
     })
     .catch((err) => {
-      console.log("Outsidee ", err);
       callback(null, err);
     });
-
-  console.log("===========");
 };
 
 const server = new grpc.Server();
