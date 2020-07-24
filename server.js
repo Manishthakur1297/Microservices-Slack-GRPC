@@ -38,17 +38,23 @@ const sendMessage = (call, callback) => {
     text: msg,
   };
 
+  console.log(data);
+
   axios
     .post(
-      "https://hooks.slack.com/services/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",
+      "https://hooks.slack.com/services/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",
       data
     )
     .then((res) => {
+      console.log("Insideeeee");
       callback(null, res.status);
     })
     .catch((err) => {
+      console.log("Outsidee ", err);
       callback(null, err);
     });
+
+  console.log("===========");
 };
 
 const server = new grpc.Server();

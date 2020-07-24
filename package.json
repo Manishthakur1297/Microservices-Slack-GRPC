@@ -2,8 +2,11 @@
   "name": "digiretail",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "client.js",
   "scripts": {
+    "client": "nodemon client",
+    "server": "nodemon server",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,7 +22,10 @@
     "grpc": "^1.24.3",
     "mongoose": "^5.9.25",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.4",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.4"
   }
 }
