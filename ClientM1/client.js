@@ -1,6 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -9,18 +10,13 @@ app.use(cors());
 
 //INIT Middleware
 app.use(morgan("dev"));
-app.use(
-  express.json({
-    extended: false,
-  })
-);
+app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json({ extended: true }));
 
 app.use("/api/message", require("./routes/message"));
 
-app.get("/", (req, res) => {
-  res.send(
-    "Implementation of 2 Microservices using Rest and grpc for internal communication"
-  );
+app.use("/", (req, res) => {
+  res.sendFile(__dirname + "/index.html");
 });
 
 const PORT = process.env.PORT || 5000;

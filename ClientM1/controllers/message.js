@@ -2,7 +2,7 @@ const grpc = require("grpc");
 const protoLoader = require("@grpc/proto-loader");
 
 const PROTO_PATH = "../proto/message.proto";
-const SERVER_URI = "0.0.0.0:3000";
+const SERVER_URI = "0.0.0.0:31000";
 
 const packageDefinition = protoLoader.loadSync(PROTO_PATH);
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
@@ -19,7 +19,7 @@ exports.sendMsg = (req, res) => {
       if (err) {
         return res.status(404).send(err);
       } else {
-        return res.json({ msg: "Success" });
+        return res.redirect("back");
       }
     });
   } catch (error) {
