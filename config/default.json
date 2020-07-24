@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://mj:mj@test.gzzv0.mongodb.net/messages?retryWrites=true&w=majority",
-    "SLACK_URL": "https://hooks.slack.com/services/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"
+    "mongoURI": "Create MongoDB Account on Atlas Cloud and Integrate Here",
+    "SLACK_URL": "Use Your SLACK APP URL AND Don't Push this default.json file to Github"
 }
